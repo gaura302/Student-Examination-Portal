@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Question</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/questions.css' %}">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            min-height:100vh;
+            padding:30px;
+        }
+
+        .menu{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .menu a{
+            text-decoration:none;
+            color:white;
+            background:#ff9800;
+            padding:10px 16px;
+            border-radius:30px;
+            margin:5px;
+            display:inline-block;
+            transition:0.4s;
+            font-size:15px;
+            font-weight:bold;
+        }
+
+        .menu a:hover{
+            background:#ff5722;
+            transform:translateY(-3px);
+        }
+
+        .form-box{
+            width:550px;
+            margin:auto;
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:25px;
+            color:#203a43;
+            font-size:32px;
+        }
+
+        .input-group{
+            margin-bottom:18px;
+        }
+
+        .input-group label{
+            display:block;
+            margin-bottom:6px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:12px;
+            border:2px solid #ddd;
+            border-radius:10px;
+            font-size:15px;
+            transition:0.3s;
+        }
+
+        .input-group input:focus{
+            border-color:#ff9800;
+            outline:none;
+            box-shadow:0 0 8px rgba(255,152,0,0.5);
+        }
+
+        .btn-box{
+            display:flex;
+            justify-content:space-between;
+            gap:15px;
+            margin-top:20px;
+        }
+
+        .btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            color:white;
+        }
+
+        .view-btn{
+            background:#2196f3;
+        }
+
+        .view-btn:hover{
+            background:#1976d2;
+        }
+
+        .update-btn{
+            background:#4caf50;
+        }
+
+        .update-btn:hover{
+            background:#2e7d32;
+        }
+
+        .message{
+            text-align:center;
+            margin-top:25px;
+            color:#ffff66;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="menu">
+        <a href="/testcraftApp/giveaddquestion/">Add Question</a>
+        <a href="/testcraftApp/giveviewquestion/">View Question</a>
+        <a href="/testcraftApp/giveupdatequestion/">Update Question</a>
+        <a href="/testcraftApp/givedeletequestion/">Delete Question</a>
+        <a href="/testcraftApp/givemeshowallquestion/">Show All Questions</a>
+        <a href="/testcraftApp/">Home Page</a>
+    </div>
+
+    <div class="form-box">
+
+        <h2>Update Question</h2>
+
+        <form>
+
+            <div class="input-group">
+                <label>Question Number</label>
+                <input type="number" name="qno"
+                    placeholder="Enter Question Number"
+                    value="{{qdata.qno}}">
+            </div>
+
+            <div class="input-group">
+                <label>Question Text</label>
+                <input type="text" name="qtext"
+                    placeholder="Enter Question Text"
+                    value="{{qdata.qtext}}">
+            </div>
+
+            <div class="input-group">
+                <label>Option 1</label>
+                <input type="text" name="op1"
+                    placeholder="Enter Option 1"
+                    value="{{qdata.op1}}">
+            </div>
+
+            <div class="input-group">
+                <label>Option 2</label>
+                <input type="text" name="op2"
+                    placeholder="Enter Option 2"
+                    value="{{qdata.op2}}">
+            </div>
+
+            <div class="input-group">
+                <label>Option 3</label>
+                <input type="text" name="op3"
+                    placeholder="Enter Option 3"
+                    value="{{qdata.op3}}">
+            </div>
+
+            <div class="input-group">
+                <label>Option 4</label>
+                <input type="text" name="op4"
+                    placeholder="Enter Option 4"
+                    value="{{qdata.op4}}">
+            </div>
+
+            <div class="input-group">
+                <label>Subject</label>
+                <input type="text" name="subject"
+                    placeholder="Enter Subject"
+                    value="{{qdata.subject}}">
+            </div>
+
+            <div class="input-group">
+                <label>Answer</label>
+                <input type="text" name="answer"
+                    placeholder="Enter Correct Answer"
+                    value="{{qdata.ans}}">
+            </div>
+
+            <div class="btn-box">
+
+                <input type="submit"
+                    value="View Question"
+                    class="btn view-btn"
+                    formaction="/testcraftApp/viewquestionupdate/">
+
+                <input type="submit"
+                    value="Update Question"
+                    class="btn update-btn"
+                    formaction="/testcraftApp/updatequestion/">
+            </div>
+        </form>
+    </div>
+    <div class="message">
+        {{message}}
+    </div>
+</body>
+</html>

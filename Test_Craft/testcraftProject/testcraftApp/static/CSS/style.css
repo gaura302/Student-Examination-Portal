@@ -1,0 +1,144 @@
+/* ---------- General Page Styles ---------- */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* .t{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+   
+} */
+/* Container */
+.exam-container {
+    background: #fff;
+    padding: 25px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 600px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Username & Messages */
+.username {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.message {
+    display: block;
+    margin-top: 8px;
+    color: #444;
+}
+
+/* ---------- Timer ---------- */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #dc3545;
+    background: #ffe6e6;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* ---------- Progress Bar ---------- */
+.progress-container {
+    margin-top: 15px;
+}
+
+.progress-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #e9ecef;
+    height: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background:black;
+    transition: width 0.4s ease;
+}
+
+/* ---------- Question Section ---------- */
+.qtext {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.options label {
+    background: #f8f9fc;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.options label:hover {
+    background: #e6f0ff;
+}
+
+/* ---------- Navigation Buttons ---------- */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.nav-buttons input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    transition: background 0.3s;
+}
+
+.nav-buttons input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* End Exam Button */
+.end-btn {
+    background: #dc3545;
+}
+
+.end-btn:hover {
+    background: #a71d2a;
+}

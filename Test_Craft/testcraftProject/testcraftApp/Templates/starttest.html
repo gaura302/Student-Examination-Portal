@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(to right,#141e30,#243b55);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .exam-container{
+            width:90%;
+            max-width:850px;
+            background:white;
+            border-radius:20px;
+            padding:35px;
+            box-shadow:0 0 25px rgba(0,0,0,0.3);
+        }
+
+        .header-top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:15px;
+        }
+
+        .username{
+            background:#243b55;
+            color:white;
+            padding:10px 18px;
+            border-radius:10px;
+            font-size:17px;
+            font-weight:bold;
+        }
+
+        hr{
+            margin:15px 0;
+            border:1px solid #ddd;
+        }
+
+        .message{
+            color:red;
+            font-weight:bold;
+            display:block;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        .progress-container{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .progress-text{
+            font-size:28px;
+            font-weight:bold;
+            color:#243b55;
+        }
+
+        .question-box{
+            background:#f5f6fa;
+            padding:30px;
+            border-radius:15px;
+            border-left:8px solid #243b55;
+        }
+
+        .qtext{
+            font-size:24px;
+            font-weight:bold;
+            color:#222;
+            margin-bottom:25px;
+        }
+
+        .options{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .options label{
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            border:2px solid #ddd;
+            cursor:pointer;
+            transition:0.3s;
+            font-size:18px;
+        }
+
+        .options label:hover{
+            background:#dfe6e9;
+            border-color:#243b55;
+            transform:scale(1.02);
+        }
+
+        input[type="radio"]{
+            margin-right:10px;
+            transform:scale(1.2);
+        }
+
+        .nav-buttons{
+            margin-top:35px;
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:15px;
+        }
+
+        .nav-buttons input{
+            flex:1;
+            min-width:180px;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            color:white;
+        }
+
+        .nav-buttons input:hover{
+            transform:scale(1.03);
+        }
+
+        .nav-buttons input[value="⏮ Previous"]{
+            background:#0984e3;
+        }
+
+        .nav-buttons input[value="⏭ Next"]{
+            background:#00b894;
+        }
+
+        .end-btn{
+            background:#d63031;
+        }
+
+        .end-btn:hover{
+            background:#b71c1c;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="exam-container">
+
+        <header>
+
+            <div class="header-top">
+                <span class="username">
+                    👤 {{request.session.username}}
+                </span>
+            </div>
+
+            <hr>
+
+            <span class="message">{{msg}}</span>
+
+            <div class="progress-container">
+                <span class="progress-text">
+                    Question {{question.qno}}
+                </span>
+            </div>
+
+        </header>
+
+        <main>
+
+            <form>
+
+                <input type="hidden" name="qno" value="{{question.qno}}">
+                <input type="hidden" name="qtext" value="{{question.qtext}}">
+                <input type="hidden" name="answer" value="{{question.ans}}">
+                <input type="hidden" name="subject" value="{{question.subject}}">
+
+                <div class="question-box">
+
+                    <p class="qtext">
+                        {{question.qno}} : {{question.qtext}}
+                    </p>
+
+                    <div class="options">
+
+                        <label>
+                            <input type="radio" name="op" value="{{question.op1}}">
+                            {{question.op1}}
+                        </label>
+
+                        <label>
+                            <input type="radio" name="op" value="{{question.op2}}">
+                            {{question.op2}}
+                        </label>
+
+                        <label>
+                            <input type="radio" name="op" value="{{question.op3}}">
+                            {{question.op3}}
+                        </label>
+
+                        <label>
+                            <input type="radio" name="op" value="{{question.op4}}">
+                            {{question.op4}}
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="nav-buttons">
+
+                    <input type="submit"
+                           value="⏮ Previous"
+                           formaction="/testcraftApp/previousquestion/">
+
+                    <input type="submit"
+                           value="⏭ Next"
+                           formaction="/testcraftApp/nextquestion/">
+
+                    <input type="submit"
+                           id="endExamBtn"
+                           value="⏹ End Exam"
+                           formaction="/testcraftApp/endtest/"
+                           class="end-btn">
+
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

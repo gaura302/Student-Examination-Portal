@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Register Page</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/student.css' %}">
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+}
+.container{
+width:400px;
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+}
+h1{
+text-align:center;
+color:#203a43;
+margin-bottom:25px;
+}
+.home{
+display:block;
+text-align:center;
+margin-bottom:20px;
+text-decoration:none;
+font-weight:bold;
+color:#203a43;
+}
+.home:hover{
+color:red;
+}
+label{
+font-weight:bold;
+color:#333;
+}
+input[type="text"],
+input[type="tel"]{
+width:100%;
+padding:12px;
+margin-top:6px;
+margin-bottom:18px;
+border:1px solid gray;
+border-radius:8px;
+font-size:15px;
+}
+input[type="submit"]{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#203a43;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+input[type="submit"]:hover{
+background:#0f2027;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/testcraftApp/" class="home">Home Page</a>
+<h1>Student Register</h1>
+<form>
+<label>Username</label>
+<input type="text" name="username" placeholder="Enter your username">
+<label>Password</label>
+<input type="text" name="password" placeholder="Enter your password">
+<label>Mobile Number</label>
+<input type="tel" name="mobno" placeholder="Enter your mobile number">
+<input type="submit" value="Sign Up" formaction="/testcraftApp/ragister/">
+</form>
+</div>
+</body>
+</html>
+```

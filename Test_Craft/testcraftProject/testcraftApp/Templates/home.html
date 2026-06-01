@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My TestZone</title>
+
+    {% load static %}
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#141e30,#243b55);
+            overflow:hidden;
+            position:relative;
+        }
+
+        /* Animated Background */
+
+        .bg-circle{
+            position:absolute;
+            border-radius:50%;
+            filter:blur(80px);
+            animation:float 8s infinite alternate;
+        }
+
+        .circle1{
+            width:320px;
+            height:320px;
+            background:#ff4ecd;
+            top:-100px;
+            left:-100px;
+        }
+
+        .circle2{
+            width:280px;
+            height:280px;
+            background:#00c6ff;
+            bottom:-90px;
+            right:-90px;
+        }
+
+        .circle3{
+            width:220px;
+            height:220px;
+            background:#8e44ad;
+            top:50%;
+            left:10%;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(0px);
+            }
+            to{
+                transform:translateY(30px);
+            }
+        }
+
+        /* Main Card */
+
+        .main-box{
+            width:430px;
+            padding:45px;
+            border-radius:25px;
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.2);
+            box-shadow:0 8px 30px rgba(0,0,0,0.4);
+            text-align:center;
+            position:relative;
+            z-index:10;
+        }
+
+        /* Heading */
+
+        .main-box h1{
+            color:white;
+            font-size:45px;
+            margin-bottom:12px;
+            letter-spacing:1px;
+        }
+
+        .subtitle{
+            color:#dcdde1;
+            margin-bottom:35px;
+            font-size:15px;
+        }
+
+        /* Buttons */
+
+        .menu-btn{
+            width:100%;
+            padding:16px;
+            margin-top:18px;
+            border:none;
+            border-radius:14px;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.4s;
+            color:white;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .menu-btn::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:-100%;
+            width:100%;
+            height:100%;
+            background:rgba(255,255,255,0.2);
+            transition:0.5s;
+        }
+
+        .menu-btn:hover::before{
+            left:100%;
+        }
+
+        .menu-btn:hover{
+            transform:translateY(-5px) scale(1.02);
+            box-shadow:0 10px 20px rgba(0,0,0,0.35);
+        }
+
+        .btn1{
+            background:linear-gradient(to right,#ff0080,#ff4ecd);
+        }
+
+        .btn2{
+            background:linear-gradient(to right,#0077ff,#00c6ff);
+        }
+
+        .btn3{
+            background:linear-gradient(to right,#00b894,#00e6a8);
+        }
+
+        .btn4{
+            background:linear-gradient(to right,#ff9800,#ffb347);
+        }
+
+        /* Footer */
+
+        .footer{
+            margin-top:30px;
+            color:#dfe6e9;
+            font-size:14px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+
+    <div class="bg-circle circle1"></div>
+    <div class="bg-circle circle2"></div>
+    <div class="bg-circle circle3"></div>
+
+    <!-- Main UI -->
+
+    <div class="main-box">
+
+        <h1> My TestZone </h1>
+
+        <p class="subtitle">
+            Online Test Portal
+        </p>
+
+        <form>
+
+            <input type="submit"
+                   value="📘 Question Operation"
+                   class="menu-btn btn1"
+                   formaction="/testcraftApp/givemequestioncurd/">
+
+            <input type="submit"
+                   value="👨‍🎓 Student Operation"
+                   class="menu-btn btn2"
+                   formaction="/testcraftApp/givemeusercurd/">
+
+            <input type="submit"
+                   value="🔐 Student Login"
+                   class="menu-btn btn3"
+                   formaction="/testcraftApp/givemelogin/">
+
+            <input type="submit"
+                   value="📊 Student Result"
+                   class="menu-btn btn4"
+                   formaction="/testcraftApp/showallresult/">
+
+        </form>
+
+       
+
+    </div>
+
+</body>
+
+</html>

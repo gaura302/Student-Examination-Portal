@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Question</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/questions.css' %}">
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+            padding:20px;
+        }
+
+        .menu{
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        .menu a{
+            text-decoration:none;
+            background:#007bff;
+            color:white;
+            padding:8px 12px;
+            border-radius:5px;
+            margin:3px;
+            display:inline-block;
+            font-size:14px;
+        }
+
+        .menu a:hover{
+            background:#0056b3;
+        }
+
+        .form-box{
+            width:400px;
+            background:white;
+            padding:20px;
+            margin:auto;
+            border-radius:8px;
+            box-shadow:0 0 10px lightgray;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        label{
+            font-weight:bold;
+            font-size:14px;
+        }
+
+        input{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:12px;
+            border:1px solid gray;
+            border-radius:5px;
+        }
+
+        .btn-box{
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .btn{
+            width:48%;
+            padding:8px;
+            border:none;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:14px;
+        }
+
+        .view-btn{
+            background:green;
+        }
+
+        .delete-btn{
+            background:red;
+        }
+
+        .message{
+            text-align:center;
+            margin-top:15px;
+            color:blue;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="menu">
+        <a href="/testcraftApp/giveaddquestion/">Add</a>
+        <a href="/testcraftApp/giveviewquestion/">View</a>
+        <a href="/testcraftApp/giveupdatequestion/">Update</a>
+        <a href="/testcraftApp/givedeletequestion/">Delete</a>
+        <a href="/testcraftApp/givemeshowallquestion/">Show All</a>
+        <a href="/testcraftApp/">Home</a>
+    </div>
+
+    <div class="form-box">
+
+        <h2>Delete Question</h2>
+
+        <form>
+
+            <label>Question Number</label>
+            <input type="number"
+                   name="qno"
+                   placeholder="Enter Question Number"
+                   value="{{qdata.qno}}"
+                   required>
+
+            <label>Question Text</label>
+            <input type="text"
+                   name="qtext"
+                   placeholder="Enter Question Text"
+                   value="{{qdata.qtext}}">
+
+            <label>Option 1</label>
+            <input type="text"
+                   name="op1"
+                   placeholder="Enter Option 1"
+                   value="{{qdata.op1}}">
+
+            <label>Option 2</label>
+            <input type="text"
+                   name="op2"
+                   placeholder="Enter Option 2"
+                   value="{{qdata.op2}}">
+
+            <label>Option 3</label>
+            <input type="text"
+                   name="op3"
+                   placeholder="Enter Option 3"
+                   value="{{qdata.op3}}">
+
+            <label>Option 4</label>
+            <input type="text"
+                   name="op4"
+                   placeholder="Enter Option 4"
+                   value="{{qdata.op4}}">
+
+            <label>Subject</label>
+            <input type="text"
+                   name="subject"
+                   placeholder="Enter Subject"
+                   value="{{qdata.subject}}"
+                   required>
+
+            <label>Answer</label>
+            <input type="text"
+                   name="answer"
+                   placeholder="Enter Answer"
+                   value="{{qdata.ans}}">
+
+            <div class="btn-box">
+
+                <input type="submit"
+                       value="View"
+                       class="btn view-btn"
+                       formaction="/testcraftApp/viewquestiondelete/">
+
+                <input type="submit"
+                       value="Delete"
+                       class="btn delete-btn"
+                       formaction="/testcraftApp/deletequestion/">
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="message">
+        {{message}}
+    </div>
+
+</body>
+
+</html>
+```

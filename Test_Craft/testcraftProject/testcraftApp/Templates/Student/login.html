@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right,#141e30,#243b55);
+        }
+
+        .login-box{
+            width:380px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 0 20px rgba(0,0,0,0.3);
+            text-align:center;
+        }
+
+        .login-box h1{
+            margin-bottom:25px;
+            color:#243b55;
+        }
+
+        .home-link{
+            display:inline-block;
+            margin-bottom:20px;
+            text-decoration:none;
+            color:white;
+            background:#243b55;
+            padding:10px 20px;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .home-link:hover{
+            background:#141e30;
+        }
+
+        input[type="text"],
+        input[type="password"]{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            font-size:16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus{
+            border:2px solid #243b55;
+        }
+
+        .btn{
+            padding:12px 20px;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+            margin:5px;
+        }
+
+        .signin{
+            background:#00b894;
+            color:white;
+        }
+
+        .signin:hover{
+            background:#019875;
+        }
+
+        .signup{
+            background:#0984e3;
+            color:white;
+        }
+
+        .signup:hover{
+            background:#0767b1;
+        }
+
+        .message{
+            display:block;
+            margin-top:20px;
+            color:red;
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <a href="/testcraftApp/" class="home-link">Home Page</a>
+
+        <h1>Student Login</h1>
+
+        <form>
+
+            <input type="text" 
+                   name="username" 
+                   placeholder="Enter your username">
+
+            <input type="password" 
+                   name="password" 
+                   placeholder="Enter your password">
+
+            <input type="submit" 
+                   value="Sign In" 
+                   formaction="/testcraftApp/login/"
+                   class="btn signin">
+
+            <input type="submit" 
+                   value="Sign Up" 
+                   formaction="/testcraftApp/givemeragister/"
+                   class="btn signup">
+
+        </form>
+
+        <span class="message">{{message}}</span>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Scores</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(to right,#141e30,#243b55);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+        }
+
+        .container{
+            width:90%;
+            max-width:900px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:25px;
+        }
+
+        .title{
+            font-size:32px;
+            color:#243b55;
+            font-weight:bold;
+        }
+
+        .logout-btn{
+            background:#ff4b5c;
+            padding:10px 20px;
+            border:none;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .logout-btn a{
+            color:white;
+            text-decoration:none;
+            font-size:16px;
+            font-weight:bold;
+        }
+
+        .logout-btn:hover{
+            background:#d63031;
+            transform:scale(1.05);
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            overflow:hidden;
+            border-radius:10px;
+        }
+
+        th{
+            background:#243b55;
+            color:white;
+            padding:15px;
+            font-size:18px;
+        }
+
+        td{
+            padding:14px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+            font-size:16px;
+        }
+
+        tr:nth-child(even){
+            background:#f2f2f2;
+        }
+
+        tr:hover{
+            background:#dfe6e9;
+            transition:0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top">
+            <div class="title">Student Result Table</div>
+
+            <button class="logout-btn">
+                <a href="/testcraftApp/logoutuser1/">Logout</a>
+            </button>
+        </div>
+
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Subject</th>
+                <th>Score</th>
+            </tr>
+
+            {% for rd in rdb %}
+            <tr>
+                <td>{{rd.username.username}}</td>
+                <td>{{rd.subject}}</td>
+                <td>{{rd.score}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>

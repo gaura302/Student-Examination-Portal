@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Questions</title>
+    {% load static %}
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            min-height:100vh;
+            background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+            padding:25px;
+        }
+        .navbar{
+            width:100%;
+            background:white;
+            padding:18px;
+            border-radius:15px;
+            text-align:center;
+            margin-bottom:25px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.3);
+        }
+        .navbar a{
+            text-decoration:none;
+            color:#203a43;
+            font-size:16px;
+            font-weight:bold;
+            margin:12px;
+            transition:0.3s;
+        }
+        .navbar a:hover{
+            color:#ff5722;
+        }
+        .heading{
+            text-align:center;
+            color:white;
+            font-size:40px;
+            margin-bottom:25px;
+            letter-spacing:2px;
+        }
+        .table-box{
+            width:100%;
+            overflow-x:auto;
+            background:white;
+            padding:20px;
+            border-radius:20px;
+            box-shadow:0 10px 20px rgba(0,0,0,0.4);
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        th{
+            background:#203a43;
+            color:white;
+            padding:15px;
+            font-size:17px;
+        }
+        td{
+            padding:14px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+            font-size:15px;
+        }
+        tr:nth-child(even){
+            background:#f2f2f2;
+        }
+        tr:hover{
+            background:#d9f3ff;
+            transition:0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/testcraftApp/giveaddquestion/">Add Question</a>
+        <a href="/testcraftApp/giveviewquestion/">View Question</a>
+        <a href="/testcraftApp/giveupdatequestion/">Update Question</a>
+        <a href="/testcraftApp/givedeletequestion/">Delete Question</a>
+        <a href="/testcraftApp/givemeshowallquestion/">Show All Questions</a>
+        <a href="/testcraftApp/">Home Page</a>
+    </div>
+    <h1 class="heading">All Questions</h1>
+    <div class="table-box">
+        <table>
+            <tr>
+                <th>Question No</th>
+                <th>Question Text</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>Subject</th>
+                <th>Answer</th>
+            </tr>
+            {% for qd in qdata %}
+            <tr>
+                <td>{{qd.qno}}</td>
+                <td>{{qd.qtext}}</td>
+                <td>{{qd.op1}}</td>
+                <td>{{qd.op2}}</td>
+                <td>{{qd.op3}}</td>
+                <td>{{qd.op4}}</td>
+                <td>{{qd.subject}}</td>
+                <td>{{qd.ans}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

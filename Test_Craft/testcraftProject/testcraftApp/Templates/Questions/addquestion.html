@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+
+    {% load static %}
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(135deg,#1e3c72,#2a5298);
+            padding:30px;
+        }
+
+        .navbar{
+            width:100%;
+            background:white;
+            padding:18px;
+            border-radius:15px;
+            text-align:center;
+            margin-bottom:30px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .navbar a{
+            text-decoration:none;
+            color:#1e3c72;
+            font-size:17px;
+            font-weight:bold;
+            margin:10px;
+            transition:0.3s;
+        }
+
+        .navbar a:hover{
+            color:#ff4b2b;
+        }
+
+        .form-box{
+            width:450px;
+            margin:auto;
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .form-box h1{
+            text-align:center;
+            color:#1e3c72;
+            margin-bottom:25px;
+        }
+
+        form input{
+            width:100%;
+            padding:14px;
+            margin-top:15px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:16px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        form input:focus{
+            border-color:#1e3c72;
+            box-shadow:0 0 8px rgba(30,60,114,0.4);
+        }
+
+        .submit-btn{
+            background:linear-gradient(to right,#ff416c,#ff4b2b);
+            color:white;
+            border:none;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.4s;
+        }
+
+        .submit-btn:hover{
+            transform:scale(1.03);
+        }
+
+        .message{
+            display:block;
+            text-align:center;
+            margin-top:20px;
+            color:white;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <a href="/testcraftApp/giveaddquestion/">Add Question</a>
+
+        <a href="/testcraftApp/giveviewquestion/">View Question</a>
+
+        <a href="/testcraftApp/giveupdatequestion/">Update Question</a>
+
+        <a href="/testcraftApp/givedeletequestion/">Delete Question</a>
+
+        <a href="/testcraftApp/givemeshowallquestion/">Show All Questions</a>
+
+        <a href="/testcraftApp/">Home Page</a>
+
+    </div>
+
+    <div class="form-box">
+
+        <h1>Add Question</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <input type="number" name="qno" placeholder="Enter Question Number">
+
+            <input type="text" name="qtext" placeholder="Enter Question Text">
+
+            <input type="text" name="op1" placeholder="Enter Option 1">
+
+            <input type="text" name="op2" placeholder="Enter Option 2">
+
+            <input type="text" name="op3" placeholder="Enter Option 3">
+
+            <input type="text" name="op4" placeholder="Enter Option 4">
+
+            <input type="text" name="subject" placeholder="Enter Subject">
+
+            <input type="text" name="answer" placeholder="Enter Correct Answer">
+
+            <input type="submit"
+                   value="Add Question"
+                   class="submit-btn"
+                   formaction="/testcraftApp/addquestion/">
+
+        </form>
+
+    </div>
+
+    <span class="message">{{message}}</span>
+
+</body>
+
+</html>

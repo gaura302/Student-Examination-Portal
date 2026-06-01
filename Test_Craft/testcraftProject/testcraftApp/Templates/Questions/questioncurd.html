@@ -1,0 +1,248 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question curd</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/questions.css' %}">
+</head>
+
+<body>
+    <a href="/testcraftApp/giveaddquestion/"> Add Question</a> &nbsp; &nbsp; 
+    <a href="/testcraftApp/giveviewquestion/">View Question</a> &nbsp; &nbsp; 
+    <a href="/testcraftApp/giveupdatequestion/"> Update Question</a> &nbsp; &nbsp; 
+    <a href="/testcraftApp/givedeletequestion/"> Delete Question</a> &nbsp; &nbsp;
+    <a href="/testcraftApp/givemeshowallquestion/"> Show All Questions</a> &nbsp; &nbsp;
+    <a href="/testcraftApp/">Home Page</a>
+
+    <hr>
+
+    <form>
+        qno : <input type="number" name="qno" placeholder="Enter Question number" value="{{qdata.qno}}"> <br><br>
+        qtext : <input type="text" name="qtext" placeholder="Enter Qjuestion text" value="{{qdata.qtext}}"> <br><br>
+        op1 :<input type="text" name="op1" placeholder="Enter option 1" value="{{qdata.op1}}"> <br><br>
+        op2 :<input type="text" name="op2" placeholder="Enter option 2" value="{{qdata.op2}}"> <br><br>
+        op3 :<input type="text" name="op3" placeholder="Enter option 3" value="{{qdata.op3}}"> <br><br>
+        op4 :<input type="text" name="op4" placeholder=" Enter option 4" value="{{qdata.op4}}"> <br><br>
+        subject :<input type="text" name="subject" placeholder="Enter subject" value="{{qdata.subject}}"> <br><br>
+        ans : <input type="text" name="answer" placeholder="Enter answer" value="{{qdata.ans}}"> <br><br>
+
+        <input type="submit" value="Add Questions" formaction="/testcraftApp/addquestion/">
+        <input type="submit" value="View Questions" formaction="/testcraftApp/viewquestion/">
+        <input type="submit" value="Update Questions" formaction="/testcraftApp/addquestion/">
+        <input type="submit" value="Delete Questions" formaction="/testcraftApp/addquestion/">
+
+    </form> <br><br>
+    <span>{{message}}</span>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question CRUD</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/questions.css' %}">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(to right,#141e30,#243b55);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .container{
+            width:900px;
+            background:white;
+            padding:30px;
+            border-radius:18px;
+            box-shadow:0 0 25px rgba(0,0,0,0.3);
+        }
+
+        .menu{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .menu a{
+            display:inline-block;
+            margin:6px;
+            padding:10px 14px;
+            background:#243b55;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            transition:0.3s;
+            font-size:14px;
+        }
+
+        .menu a:hover{
+            background:#141e30;
+            transform:scale(1.05);
+        }
+
+        hr{
+            margin:20px 0;
+            border:1px solid #ddd;
+        }
+
+        form{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#333;
+        }
+
+        input[type="text"],
+        input[type="number"]{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border:2px solid #243b55;
+        }
+
+        .btn-group{
+            grid-column:span 2;
+            display:flex;
+            justify-content:space-between;
+            gap:10px;
+            margin-top:15px;
+        }
+
+        .btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            font-size:15px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            color:white;
+        }
+
+        .add{ background:#00b894; }
+        .view{ background:#0984e3; }
+        .update{ background:#fdcb6e; color:black; }
+        .delete{ background:#d63031; }
+
+        .btn:hover{
+            transform:scale(1.05);
+            opacity:0.9;
+        }
+
+        .message{
+            display:block;
+            margin-top:15px;
+            text-align:center;
+            color:red;
+            font-weight:bold;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="menu">
+            <a href="/testcraftApp/giveaddquestion/">Add Question</a>
+            <a href="/testcraftApp/giveviewquestion/">View Question</a>
+            <a href="/testcraftApp/giveupdatequestion/">Update Question</a>
+            <a href="/testcraftApp/givedeletequestion/">Delete Question</a>
+            <a href="/testcraftApp/givemeshowallquestion/">Show All Questions</a>
+            <a href="/testcraftApp/">Home Page</a>
+        </div>
+
+        <hr>
+
+        <form>
+
+            <label>Q No</label>
+            <input type="number" name="qno" value="{{qdata.qno}}" placeholder="Enter Question number">
+
+            <label>Question Text</label>
+            <input type="text" name="qtext" value="{{qdata.qtext}}" placeholder="Enter Question text">
+
+            <label>Option 1</label>
+            <input type="text" name="op1" value="{{qdata.op1}}" placeholder="Enter option 1">
+
+            <label>Option 2</label>
+            <input type="text" name="op2" value="{{qdata.op2}}" placeholder="Enter option 2">
+
+            <label>Option 3</label>
+            <input type="text" name="op3" value="{{qdata.op3}}" placeholder="Enter option 3">
+
+            <label>Option 4</label>
+            <input type="text" name="op4" value="{{qdata.op4}}" placeholder="Enter option 4">
+
+            <label>Subject</label>
+            <input type="text" name="subject" value="{{qdata.subject}}" placeholder="Enter subject">
+
+            <label>Answer</label>
+            <input type="text" name="answer" value="{{qdata.ans}}" placeholder="Enter answer">
+
+            <div class="btn-group">
+
+                <input type="submit"
+                       value="Add"
+                       formaction="/testcraftApp/addquestion/"
+                       class="btn add">
+
+                <input type="submit"
+                       value="View"
+                       formaction="/testcraftApp/viewquestion/"
+                       class="btn view">
+
+                <input type="submit"
+                       value="Update"
+                       formaction="/testcraftApp/addquestion/"
+                       class="btn update">
+
+                <input type="submit"
+                       value="Delete"
+                       formaction="/testcraftApp/addquestion/"
+                       class="btn delete">
+
+            </div>
+
+        </form>
+
+        <span class="message">{{message}}</span>
+
+    </div>
+
+</body>
+
+</html>

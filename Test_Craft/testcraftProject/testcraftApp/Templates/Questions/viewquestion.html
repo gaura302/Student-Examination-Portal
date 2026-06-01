@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Question</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/questions.css' %}">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right, #141e30, #243b55);
+            min-height:100vh;
+            padding:40px;
+        }
+
+        .navbar{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .navbar a{
+            text-decoration:none;
+            color:white;
+            background:#00bcd4;
+            padding:10px 18px;
+            border-radius:8px;
+            margin:5px;
+            display:inline-block;
+            transition:0.3s;
+            font-weight:bold;
+        }
+
+        .navbar a:hover{
+            background:#0097a7;
+            transform:scale(1.05);
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+            color:#243b55;
+        }
+
+        .input-box{
+            margin-bottom:18px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:6px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#00bcd4;
+            box-shadow:0 0 5px #00bcd4;
+        }
+
+        .btn{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:#243b55;
+            color:white;
+            font-size:16px;
+            border-radius:8px;
+            cursor:pointer;
+            transition:0.3s;
+            font-weight:bold;
+        }
+
+        .btn:hover{
+            background:#141e30;
+        }
+
+        .message{
+            text-align:center;
+            color:yellow;
+            margin-top:20px;
+            font-size:18px;
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="/testcraftApp/giveaddquestion/">Add Question</a>
+        <a href="/testcraftApp/giveviewquestion/">View Question</a>
+        <a href="/testcraftApp/giveupdatequestion/">Update Question</a>
+        <a href="/testcraftApp/givedeletequestion/">Delete Question</a>
+        <a href="/testcraftApp/givemeshowallquestion/">Show All Questions</a>
+        <a href="/testcraftApp/">Home Page</a>
+    </div>
+
+    <div class="container">
+
+        <h1>View Question</h1>
+
+        <form>
+
+            <div class="input-box">
+                <label>Question Number</label>
+                <input type="number" name="qno"
+                    placeholder="Enter Question Number"
+                    value="{{qdata.qno}}">
+            </div>
+
+            <div class="input-box">
+                <label>Question Text</label>
+                <input type="text" name="qtext"
+                    placeholder="Enter Question Text"
+                    value="{{qdata.qtext}}">
+            </div>
+
+            <div class="input-box">
+                <label>Option 1</label>
+                <input type="text" name="op1"
+                    placeholder="Enter Option 1"
+                    value="{{qdata.op1}}">
+            </div>
+
+            <div class="input-box">
+                <label>Option 2</label>
+                <input type="text" name="op2"
+                    placeholder="Enter Option 2"
+                    value="{{qdata.op2}}">
+            </div>
+
+            <div class="input-box">
+                <label>Option 3</label>
+                <input type="text" name="op3"
+                    placeholder="Enter Option 3"
+                    value="{{qdata.op3}}">
+            </div>
+
+            <div class="input-box">
+                <label>Option 4</label>
+                <input type="text" name="op4"
+                    placeholder="Enter Option 4"
+                    value="{{qdata.op4}}">
+            </div>
+
+            <div class="input-box">
+                <label>Subject</label>
+                <input type="text" name="subject"
+                    placeholder="Enter Subject"
+                    value="{{qdata.subject}}">
+            </div>
+
+            <div class="input-box">
+                <label>Answer</label>
+                <input type="text" name="answer"
+                    placeholder="Enter Correct Answer"
+                    value="{{qdata.ans}}">
+            </div>
+
+            <input type="submit"
+                value="View Question"
+                class="btn"
+                formaction="/testcraftApp/viewquestion/">
+
+        </form>
+
+    </div>
+
+    <div class="message">
+        {{message}}
+    </div>
+
+</body>
+
+</html>

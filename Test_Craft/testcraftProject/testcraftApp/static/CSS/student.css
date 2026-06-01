@@ -1,0 +1,104 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Navigation */
+nav, a {
+    font-size: 16px;
+    font-weight: bold;
+    color: darkblue;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+/* Form Container */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Form Labels & Inputs */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+input[type="submit"] {
+    background: darkblue;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: red;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 2px solid red;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Messages */
+span {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    color: green;
+}

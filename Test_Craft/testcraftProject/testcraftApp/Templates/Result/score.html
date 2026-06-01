@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 3px solid red;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+</head>
+
+<body>
+    <div >
+    <h1>FinalScore = {{finalscore}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button><a href="/testcraftApp/logoutuser/">Logout</a></button></h1>
+     
+</div>
+    <table>
+        <tr>
+            <th>Question no </th>
+            <th>question text</th>
+            <th>Selected_ans</th>
+            <th>correct_ans</th>
+        </tr>
+        {% for res in response %}
+        <tr>
+            <td>{{res.0}}</td>
+            <td>{{res.1}}</td>
+            <td>{{res.2}}</td>
+            <td>{{res.3}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
