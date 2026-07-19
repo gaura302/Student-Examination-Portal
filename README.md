@@ -19,19 +19,19 @@ The Student Examination Portal is a web-based application developed using Django
 - CSS
 - Bootstrap
 
-📸 Project Screenshots
+## 📸 Project Screenshots
 
- ### 1. Dashboard
-![Dashboard](screenshots/01_Dashboard.png)
+### Exam System Dashboard
+![Exam System Dashboard](screenshots/Exam%20System%20Dashboard.png)
 
- ### 2. Student Login
-![Student Login](screenshots/02_Student_Login.png)
+### Student Login System
+![Student Login System](screenshots/Student%20Login%20System.png)
 
-### 3. Student Management
-![Student Management](screenshots/03_Student_Management.png)
+### Student Management System
+![Student Management System](screenshots/Student%20Management%20System.png)
 
-### 4. Question Management
-![Question Management](screenshots/04_Question_Management.png)
+### Question Management System
+![Question Management System](screenshots/Question%20Management%20System.png)
 
-### 5. Student Results
-![Student Results](screenshots/05_Student_Results.png)
+### Student Result
+![Student Result](screenshots/Student%20Result.png)
